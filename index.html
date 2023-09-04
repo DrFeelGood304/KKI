@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page with Countdown</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .signup-form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px auto; /* Center the user input fields */
+            display: block;
+            border: 3px solid #ccc; /* Use a 3px border */
+            border-radius: 7px;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #countdown {
+            font-size: 36px; /* Larger font size */
+            font-family: 'Courier New', monospace; /* Use Courier New font */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Countdown timer -->
+    <div id="countdown"></div>
+
+    <!-- Signup form -->
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to calculate and display the countdown
+        function updateCountdown() {
+            const countdownElement = document.getElementById("countdown");
+            const targetDate = new Date("2023-09-19T00:00:00"); // September 19, 2023, 00:00:00
+
+            const now = new Date();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                countdownElement.textContent = "Countdown expired!";
+            } else {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                countdownElement.textContent = `Time remaining: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+
+        // Update the countdown initially and every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Form submission handling (This is where you would send data to the server and store it in a database)
+        const signupForm = document.getElementById("signup-form");
+        signupForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the form from submitting (for demonstration purposes)
+            
+            // Collect user data (you can send this data to the server for storage)
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Example: Display the collected data (replace this with database storage)
+            console.log("Collected Data:");
+            console.log("Username: " + username);
+            console.log("Email: " + email);
+            console.log("Password: " + password);
+        });
+    </script>
+</body>
+</html>
+

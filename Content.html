@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Content.css">
+    <link rel="stylesheet" href="modal.css"> <!-- Include your modal CSS here -->
+    <title>Kavya Kishor</title>
+    <style>
+        /* Add your existing CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="login-signup">
+            <button class="login-button" id="login-button">Login</button>
+            <button class="signup-button" id="signup-button">Sign Up</button>
+        </div>
+        
+        <div class="logo"></div>
+       
+        <h1>Welcome to Kavya Kishor</h1>
+        
+        <nav>
+            <ul class="menu">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="Content.html">Content</a></li>
+                <li><a href="Creators.html">Creators</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Luminance.html">Luminance</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        
+    </header>
+
+    <!-- Your existing content -->
+    <p>Content</p>
+
+    <!-- The modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Hello, World!</h2>
+            <p>This is a simple modal dialog.</p>
+            <button id="close-modal-button">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get modal, overlay, and close button elements
+        const modal = document.getElementById("modal");
+        const closeButton = document.getElementById("close-modal-button");
+        const loginButton = document.getElementById("login-button");
+        const signUpButton = document.getElementById("signup-button");
+
+        // Function to open the modal
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Add click event listeners to open the modal
+        loginButton.addEventListener("click", openModal);
+        signUpButton.addEventListener("click", openModal);
+
+        // Add click event listener to close the modal when the close button is clicked
+        closeButton.addEventListener("click", closeModal);
+
+        // Add a click event listener to close the modal when clicking outside the modal content
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
+
