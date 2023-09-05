@@ -18,12 +18,16 @@
             border: 1px solid #ccc;
             border-radius: 10px;
         }
-        input[type="text"], input[type="email"], input[type="password"], input[type="country"] {
-            width: 100%;
+        /* Center the input fields within the entire page */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="country"] {
+            width: 275px; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the user input fields horizontally */
             padding: 8px;
-            margin: 8px auto; /* Center the user input fields */
             display: block;
-            border: 3px solid #ccc; /* Use a 3px border */
+            border: 3px solid #ccc;
             border-radius: 7px;
         }
         button {
@@ -42,13 +46,30 @@
         .checkbox-label {
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Align items at the end of the line */
         }
         .checkbox-label input[type="checkbox"] {
-            margin-right: 5px;
+            transform: scale(2.0); /* Increase checkbox size */
         }
         .additional-text {
             margin-top: 20px;
             text-align: left;
+        }
+        /* Style the container for the blue buttons */
+        .corner-links {
+            display: flex;
+            justify-content: space-between; /* Space the buttons evenly across the container */
+            margin-top: 20px; /* Add margin at the top */
+            padding: 0 10px; /* Add padding around the buttons */
+            white-space: nowrap;
+        }
+
+        /* Style the individual blue buttons */
+        .blue-button {
+            color: blue; /* Set the text color to blue */
+            text-decoration: none; /* Remove underline from links */
+            margin: 5px; /* Reset margin */
+            padding: 0; /* Reset padding */
         }
     </style>
 </head>
@@ -69,65 +90,33 @@
             <input type="email" id="email" name="email" placeholder="Email" required><br>
             <input type="password" id="password" name="password" placeholder="Password" required><br>
             <input type="text" id="country" name="country" placeholder="Country" required><br>
-    
+
             <!-- Text for Terms and Conditions -->
-           <!-- Text for Terms and Conditions -->
-<div class="additional-text">
-    
-</div>
-
-<label class="checkbox-label">
-    I hereby Join the Community of Creators called 
+            <div class="additional-text">
+                <label class="checkbox-label">
+                    I hereby Join the Community of Creators called 
                     The Creators Circle by Kavya Kishor International 
-    <input type="checkbox" id="termsCheckbox" required>
-</label><br>
+                </label>
+                <input type="checkbox" id="termsCheckbox" required>
+            </div>
 
-<!-- Text for Privacy Policy -->
-<div class="additional-text">
-    
-</div>
+            <!-- Text for Privacy Policy -->
+            <div class="additional-text">
+                <label class="checkbox-label">
+                    I agree to be bound by the Rules of The Creators Circle
+                </label>
+                <input type="checkbox" id="privacyCheckbox" required>
+            </div>
 
-<label class="checkbox-label">
-    I agree to be bound by the Rules of The Creators Circle
-    <input type="checkbox" id="privacyCheckbox" required>
-</label><br>
-
-    
             <button type="submit">Sign Up</button>
     
-<!-- Blue text links in the corners below Sign Up button -->
-<!-- Blue text links in the corners below Sign Up button -->
-<div class="corner-links">
-    <a href="#" class="blue-button">Terms and Conditions</a>
-    <span class="delimiter">|</span>
-    <a href="#" class="blue-button">Privacy Policy</a>
-</div>
-
-
-
-
-            <style>
-                /* Style the container for the blue buttons */
-                .corner-links {
-                    display: flex;
-                    justify-content: space-between; /* Space the buttons evenly across the container */
-                    margin-top: 20px; /* Add margin at the top */
-                    padding: 10px 40px; /* Add padding around the buttons */
-                }
-            
-                /* Style the individual blue buttons */
-                .blue-button {
-                    color: blue; /* Set the text color to blue */
-                    text-decoration: none; /* Remove underline from links */
-                    margin: 5; /* Reset margin */
-                    padding: 0; /* Reset padding */
-                }
-            </style>
-            
+            <!-- Blue text links in the corners below Sign Up button -->
+            <div class="corner-links">
+                <a href="#" class="blue-button">Terms and Conditions</a>
+                <a href="#" class="blue-button">Privacy Policy</a>
+            </div>
         </form>
     </div>
-    
-    
 
     <script>
         // Function to calculate and display the countdown

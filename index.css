@@ -41,20 +41,19 @@ header h1 {
 
 /* Style the container for the blue buttons */
 .corner-links {
-    display: flex;
-    justify-content: center; /* Center the buttons and delimiter horizontally */
-    align-items: center; /* Align the buttons and delimiter vertically in the center */
-    margin-top: 20px;
-    padding: 0;
+    text-align: center; /* Center-align the links */
+    margin-top: 20px; /* Add margin at the top */
+    padding: 10px 0; /* Add padding around the buttons */
 }
 
 /* Style the individual blue buttons */
 .blue-button {
-    color: blue;
-    text-decoration: none;
-    margin: -10 -5px; /* Add horizontal margin to separate the buttons */
-    padding: 0;
+    color: blue; /* Set the text color to blue */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Add margin around the buttons */
+    padding: 0; /* Reset padding */
 }
+
 
 /* Style the delimiter (line) between the blue buttons */
 .delimiter {
