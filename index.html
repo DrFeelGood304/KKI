@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page with Countdown</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Kavya Kishor</title>
     <style>
         /* Add your CSS styles here */
         body {
@@ -17,7 +18,7 @@
             border: 1px solid #ccc;
             border-radius: 10px;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="email"], input[type="password"], input[type="country"] {
             width: 100%;
             padding: 8px;
             margin: 8px auto; /* Center the user input fields */
@@ -38,9 +39,25 @@
             font-family: 'Courier New', monospace; /* Use Courier New font */
             margin-top: 20px;
         }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-label input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .additional-text {
+            margin-top: 20px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo"></div>
+        <h1>Welcome to Kavya Kishor</h1>
+    </header>
+
     <!-- Countdown timer -->
     <div id="countdown"></div>
 
@@ -51,9 +68,66 @@
             <input type="text" id="username" name="username" placeholder="Username" required><br>
             <input type="email" id="email" name="email" placeholder="Email" required><br>
             <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="text" id="country" name="country" placeholder="Country" required><br>
+    
+            <!-- Text for Terms and Conditions -->
+           <!-- Text for Terms and Conditions -->
+<div class="additional-text">
+    
+</div>
+
+<label class="checkbox-label">
+    I hereby Join the Community of Creators called 
+                    The Creators Circle by Kavya Kishor International 
+    <input type="checkbox" id="termsCheckbox" required>
+</label><br>
+
+<!-- Text for Privacy Policy -->
+<div class="additional-text">
+    
+</div>
+
+<label class="checkbox-label">
+    I agree to be bound by the Rules of The Creators Circle
+    <input type="checkbox" id="privacyCheckbox" required>
+</label><br>
+
+    
             <button type="submit">Sign Up</button>
+    
+<!-- Blue text links in the corners below Sign Up button -->
+<!-- Blue text links in the corners below Sign Up button -->
+<div class="corner-links">
+    <a href="#" class="blue-button">Terms and Conditions</a>
+    <span class="delimiter">|</span>
+    <a href="#" class="blue-button">Privacy Policy</a>
+</div>
+
+
+
+
+            <style>
+                /* Style the container for the blue buttons */
+                .corner-links {
+                    display: flex;
+                    justify-content: space-between; /* Space the buttons evenly across the container */
+                    margin-top: 20px; /* Add margin at the top */
+                    padding: 10px 40px; /* Add padding around the buttons */
+                }
+            
+                /* Style the individual blue buttons */
+                .blue-button {
+                    color: blue; /* Set the text color to blue */
+                    text-decoration: none; /* Remove underline from links */
+                    margin: 5; /* Reset margin */
+                    padding: 0; /* Reset padding */
+                }
+            </style>
+            
         </form>
     </div>
+    
+    
 
     <script>
         // Function to calculate and display the countdown
@@ -84,19 +158,29 @@
         const signupForm = document.getElementById("signup-form");
         signupForm.addEventListener("submit", function (e) {
             e.preventDefault(); // Prevent the form from submitting (for demonstration purposes)
+
+            // Check if both checkboxes are checked
+            const termsCheckbox = document.getElementById("termsCheckbox");
+            const privacyCheckbox = document.getElementById("privacyCheckbox");
+
+            if (!termsCheckbox.checked || !privacyCheckbox.checked) {
+                alert("Please agree to the terms and privacy policy.");
+                return;
+            }
             
             // Collect user data (you can send this data to the server for storage)
             const username = document.getElementById("username").value;
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
+            const country = document.getElementById("country").value;
 
             // Example: Display the collected data (replace this with database storage)
             console.log("Collected Data:");
             console.log("Username: " + username);
             console.log("Email: " + email);
             console.log("Password: " + password);
+            console.log("Country: " + country);
         });
     </script>
 </body>
 </html>
-
