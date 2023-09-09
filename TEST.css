@@ -70,7 +70,7 @@ header h1 {
 /* Style the login and sign up buttons */
 .login-signup {
     position: absolute;
-    top: 5;
+    top: 0;
     right: 0;
     background-color: #6c29b9;
     padding: 5px 10px;
