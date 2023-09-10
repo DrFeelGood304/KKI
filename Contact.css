@@ -1,0 +1,121 @@
+
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the menu */
+.menu {
+    list-style: none;
+    display: flex; /* Change to flex to make buttons horizontal */
+    margin-top: 20px;
+    justify-content: center; /* Center the buttons horizontally */
+}
+
+/* Style the menu links */
+.menu li {
+    margin: 0 10px; /* Add space between menu items */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #FFF;
+    padding: 8px 20px;
+    border-radius: 15px;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for menu links */
+.menu li a:hover {
+    background-color: #2980b9;
+}
+
+/* Style the header */
+header {
+    position: relative;
+}
+
+/* Style the logo */
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 20px; /* Adjust the left position as needed */
+    width: 75px;
+    height: 75px;
+    background-image: url('logo.tiff'); /* Update the path to your logo image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+
+
+
+/* Style the "Kavya Kishor" heading */
+header h1 {
+    background-color: #6c29b9;
+    color: #ffffff; /* Change to your desired color */
+    font-size: 32px; /* Adjust the font size if needed */
+    font-family: "Apple chancery", cursive; /* Change to Optima font family */
+    text-align: center;
+    padding: 10px 0; /* Add padding to leave white space at the top and bottom */
+    margin-top: 10px; /* Move the h1 down a little */
+    border-top: 2px solid #6c29b9; /* Add a thinner border at the top */
+    border-bottom: none; /* Remove the border at the bottom */
+}
+
+
+/* Style the login and sign up buttons */
+.login-signup {
+    position: absolute;
+    top: 5;
+    right: 0;
+    background-color: #6c29b9;
+    padding: 5px 10px;
+    border-top-left-radius: 10px; /* Add rounded corners to top left */
+    border-top-right-radius: 10px; /* Add rounded corners to top right */
+}
+
+.login-button, .signup-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover, .signup-button:hover {
+    background-color: #2980b9;
+}
+/* In your homepage.css or within a <style> tag */
+
+
+/* In your homepage.css or within a <style> tag */
+.image-container {
+    width: 80%; /* Set the container width as a percentage of its parent */
+    max-width: 800px; /* Set a maximum width for the container (adjust as needed) */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center; /* Center the image horizontally within the container */
+    border: 2px solid #ccc; /* Add a border to the container */
+    padding: 10px; /* Add padding around the container */
+    box-sizing: border-box; /* Include padding and border in the total width/height */
+    background-color: #f0f0f0; /* Set a background color for the container */
+}
+
+.adjustable-image {
+    width: 100%; /* Set the image width to 100% of the container */
+    height: auto; /* Maintain the image's aspect ratio */
+    max-height: 70vh; /* Set a maximum height for the image as a percentage of viewport height */
+    border: 1px solid #000; /* Add a border to the image */
+    padding: 5px; /* Add padding around the image */
+    margin: 10px auto; /* Center the image horizontally within the container */
+    display: block; /* Remove any inline spacing */
+    transition: all 0.3s ease; /* Add a smooth transition effect on hover */
+}
+

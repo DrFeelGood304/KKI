@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homepage.css">
     <title>Kavya Kishor</title>
+    <style>
+        /* CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        .signup-form {
+            position: absolute;
+            top: 50%; /* Adjust the vertical position */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        /* Center the input fields within the form */
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"],
+        .signup-form input[type="country"] {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 8px;
+            display: block;
+            border: 3px solid #ccc;
+            border-radius: 7px;
+        }
+        .signup-form button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="login-signup">
-            <button class="login-button">Login</button>
-            <button class="signup-button">Sign Up</button>
-        </div>
         <div class="logo"></div>
-       
         <h1>Welcome to Kavya Kishor</h1>
-        
-        
         <nav>
             <ul class="menu">
                 <li><a href="homepage.html">Home</a></li>
@@ -28,20 +76,166 @@
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
-        <h2 class="paragraph">
-            <p class="paragraph-content">
-                Kavya Kishor is an
-                internationally published literary magazine
-                based in Bangladesh.
-                The magazine publishes many things related to
-                literature and culture, including poems, stories,
-                and articles.
-            </p>
-        </h2>
-        
+       
+        <div class="login-signup">
+            
+            <button class="login-button" onclick="openModal('signup-modal')">Login</button>
+            <button class="signup-button" onclick="openModal('signup-modal')">Sign Up</button>
+        </div>
     </header>
-    <footer>
-        <p class="footer-tag">A Creative Collective Production</p>
-    </footer>
+
+    <!-- Modal for Sign Up -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-close" onclick="closeModal('signup-modal')">X</div>
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="username" name="username" placeholder="Username" required><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+                <input type="text" id="country" name="country" placeholder="Country" required><br>
+
+                <!-- Text for Terms and Conditions -->
+                <div class="additional-text">
+                    <label class="checkbox-label">
+                        I hereby Join the Community of Creators called 
+                        The Creators Circle by Kavya Kishor International 
+                    </label>
+                    <input type="checkbox" id="termsCheckbox" required>
+                </div>
+
+                <!-- Text for Privacy Policy -->
+                <div class="additional-text">
+                    <label class="checkbox-label">
+                        I agree to be bound by the Rules of The Creators Circle
+                    </label>
+                    <input type="checkbox" id="privacyCheckbox" required>
+                </div>
+
+                <button type="submit">Sign Up</button>
+        
+                <!-- Blue text links in the corners below Sign Up button -->
+                <div class="corner-links">
+                    <a href="#" class="blue-button">Terms and Conditions</a>
+                    <a href="#" class="blue-button">Privacy Policy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+
+            // Add an event listener to the modal overlay
+            modal.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    closeModal(modalId);
+                }
+            });
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+    <!-- Include the CSS styles for the social media post -->
+    <style>
+        /* Styles for the social media post */
+        /* Grey stripe at the top */
+        .post-container {
+            background-color: white;
+            border-radius: 10px; /* Rounded corners for the entire container */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-height: 400px;
+            padding: 15px;
+            margin: 20px auto; /* Center the container horizontally and add margin for vertical centering */
+            overflow-y: auto;
+            position: relative; /* Add relative positioning for absolute positioning inside */
+            display: flex; /* Display flex to vertically center content */
+            flex-direction: column; /* Align content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .grey-stripe {
+            background-color: #ccc; /* Grey color */
+            height: 5px; /* Cover the top with a grey stripe */
+            border-top-left-radius: 10px; /* Rounded corners for the top-left corner */
+            border-top-right-radius: 10px; /* Rounded corners for the top-right corner */
+            position: absolute; /* Position at the top */
+            top: 0;
+            left: 0;
+            right: 0; /* Cover the entire width */
+        }
+
+        /* Styles for the name and time */
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%; /* Ensure the header spans the entire width */
+        }
+
+        .username {
+            font-weight: bold;
+            margin-right: auto; /* Push the name to the left */
+        }
+
+        .time {
+            color: #888;
+            margin-left: auto; /* Push the time to the right */
+        }
+
+        .post-content {
+            /* Your post content styles */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and other content above -->
+
+    <!-- Social media post content -->
+    <div class="post-container">
+        <!-- Grey stripe at the top -->
+        <div class="grey-stripe"></div>
+
+        <!-- Social media post content -->
+        <div class="post-header">
+            <div class="username">John Doe</div>
+            <div class="time">2 hours ago</div>
+        </div>
+        <div class="post-content">
+            <!-- Your post content goes here -->
+            This is a test post.
+         </div>
+        
+    <!-- Include the JavaScript code for fetching and updating the post data -->
+    <script>
+        // Function to fetch user data and post time from the backend
+        fetch('/getPostData')
+            .then(response => response.json())
+            .then(data => {
+                const usernameElement = document.querySelector('.username');
+                const timeElement = document.querySelector('.time');
+
+                // Update the username and time with fetched data
+                usernameElement.textContent = data.username;
+                timeElement.textContent = data.time;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+    <!-- Footer and other content below -->
 </body>
 </html>
