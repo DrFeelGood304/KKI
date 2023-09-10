@@ -1,4 +1,3 @@
-
 /* Reset some default styles */
 body, h1, h2, p, ul {
     margin: 0;
@@ -44,7 +43,7 @@ header {
     left: 20px; /* Adjust the left position as needed */
     width: 75px;
     height: 75px;
-    background-image: url('logo.tiff'); /* Update the path to your logo image */
+    background-image: url('KKIlogo.jpg'); /* Update the path to your logo image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -93,30 +92,39 @@ header h1 {
 .login-button:hover, .signup-button:hover {
     background-color: #2980b9;
 }
-/* In your homepage.css or within a <style> tag */
 
 
-/* In your homepage.css or within a <style> tag */
-.image-container {
-    height: 100px;
-    width: 80%; /* Set the container width as a percentage of its parent */
-    max-width: 800px; /* Set a maximum width for the container (adjust as needed) */
-    margin: 0 auto; /* Center the container horizontally */
-    text-align: center; /* Center the image horizontally within the container */
-    border: 2px solid #ccc; /* Add a border to the container */
-    padding: 10px; /* Add padding around the container */
-    box-sizing: border-box; /* Include padding and border in the total width/height */
-    background-color: #f0f0f0; /* Set a background color for the container */
+
+
+/* Style the paragraph */
+.paragraph {
+    margin-top: 19px;
+    padding: 9px; /* Add padding for space between content and border */
+    border: 3px solid #6c29b9; /* Add a border around the paragraph */
+    border-radius: 10px; /* Add rounded corners to the border */
+    font-family: "Optima", sans-serif; /* Change to your desired font */
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust the line height for better readability */
+    text-align: center; /* Center align the paragraph content */
 }
 
-.adjustable-image {
-    width: 100%; /* Set the image width to 100% of the container */
-    height: auto; /* Maintain the image's aspect ratio */
-    max-height: 70vh; /* Set a maximum height for the image as a percentage of viewport height */
-    border: 1px solid #000; /* Add a border to the image */
-    padding: 5px; /* Add padding around the image */
-    margin: 10px auto; /* Center the image horizontally within the container */
-    display: block; /* Remove any inline spacing */
-    transition: all 0.3s ease; /* Add a smooth transition effect on hover */
+
+/* Style the footer tag */
+.footer-tag {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6c29b9;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+    font-family: "Your Desired Font", "Snell Roundhand", cursive;
+    font-size: 20px; /* Adjust font size as needed */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: fit-content;
+    border-bottom: 2px solid transparent;
 }
+
 

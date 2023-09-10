@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Contact.css">
     <title>Kavya Kishor</title>
+    <style>
+        /* CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        .signup-form {
+            position: absolute;
+            top: 50%; /* Adjust the vertical position */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        /* Center the input fields within the form */
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"],
+        .signup-form input[type="country"] {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 8px;
+            display: block;
+            border: 3px solid #ccc;
+            border-radius: 7px;
+        }
+        .signup-form button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="login-signup">
-            <button class="login-button">Login</button>
-            <button class="signup-button">Sign Up</button>
-        </div>
         <div class="logo"></div>
-       
         <h1>Welcome to Kavya Kishor</h1>
-         <nav>
+        <nav>
             <ul class="menu">
                 <li><a href="homepage.html">Home</a></li>
                 <li><a href="Content.html">Content</a></li>
@@ -26,9 +76,80 @@
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
+       
+        <div class="login-signup">
+            
+            <button class="login-button" onclick="openModal('signup-modal')">Login</button>
+            <button class="signup-button" onclick="openModal('signup-modal')">Sign Up</button>
+        </div>
+    </header>
+
+    <!-- Modal for Sign Up -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-close" onclick="closeModal('signup-modal')">X</div>
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="username" name="username" placeholder="Username" required><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+                <input type="text" id="country" name="country" placeholder="Country" required><br>
+
+                <!-- Text for Terms and Conditions -->
+                <div class="additional-text">
+                    <label class="checkbox-label">
+                        I hereby Join the Community of Creators called 
+                        The Creators Circle by Kavya Kishor International 
+                    </label>
+                    <input type="checkbox" id="termsCheckbox" required>
+                </div>
+
+                <!-- Text for Privacy Policy -->
+                <div class="additional-text">
+                    <label class="checkbox-label">
+                        I agree to be bound by the Rules of The Creators Circle
+                    </label>
+                    <input type="checkbox" id="privacyCheckbox" required>
+                </div>
+
+                <button type="submit">Sign Up</button>
+        
+                <!-- Blue text links in the corners below Sign Up button -->
+                <div class="corner-links">
+                    <a href="#" class="blue-button">Terms and Conditions</a>
+                    <a href="#" class="blue-button">Privacy Policy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+
+            // Add an event listener to the modal overlay
+            modal.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    closeModal(modalId);
+                }
+            });
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
        <!-- Add your image within a container -->
 <p> 
-    </p>
+   constact </p>
     <img src="O9FG4R0.jpg" alt="Description of your image" class="adjustable-image">
 </div>
 

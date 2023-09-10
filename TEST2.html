@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="homepage.css">
-    <title>Kavya Kishor</title>
+    <link rel="stylesheet" href="TEST2.css">
+    <title>TestPage</title>
     <style>
         /* CSS styles here */
         body {
@@ -59,12 +58,62 @@
             right: 10px;
             cursor: pointer;
         }
+
+        /* Styles for the social media post */
+        .post-container {
+            background-color: white;
+            border-radius: 10px; /* Rounded corners for the entire container */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-height: 400px;
+            padding: 15px;
+            margin: 20px auto; /* Center the container horizontally and add margin for vertical centering */
+            overflow-y: auto;
+            position: relative; /* Add relative positioning for absolute positioning inside */
+            display: flex; /* Display flex to vertically center content */
+            flex-direction: column; /* Align content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .grey-stripe {
+            background-color: #ccc; /* Grey color */
+            height: 5px; /* Cover the top with a grey stripe */
+            border-top-left-radius: 10px; /* Rounded corners for the top-left corner */
+            border-top-right-radius: 10px; /* Rounded corners for the top-right corner */
+            position: absolute; /* Position at the top */
+            top: 0;
+            left: 0;
+            right: 0; /* Cover the entire width */
+        }
+
+        /* Styles for the name and time */
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%; /* Ensure the header spans the entire width */
+        }
+
+        .username {
+            font-weight: bold;
+            margin-right: auto; /* Push the name to the left */
+        }
+
+        .time {
+            color: #888;
+            margin-left: auto; /* Push the time to the right */
+        }
+
+        .post-content {
+            /* Your post content styles */
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo"></div>
-        <h1>Welcome to Kavya Kishor</h1>
+        <h1>TestPage</h1>
         <nav>
             <ul class="menu">
                 <li><a href="homepage.html">Home</a></li>
@@ -78,7 +127,6 @@
         </nav>
        
         <div class="login-signup">
-            
             <button class="login-button" onclick="openModal('signup-modal')">Login</button>
             <button class="signup-button" onclick="openModal('signup-modal')">Sign Up</button>
         </div>
@@ -123,6 +171,7 @@
         </div>
     </div>
 
+    <!-- JavaScript to open and close the modal -->
     <script>
         // Function to open the modal
         function openModal(modalId) {
@@ -143,19 +192,37 @@
             modal.style.display = "none";
         }
     </script>
-</body>
-</html>
 
+    <!-- JavaScript to fetch and display posts -->
+    <script>
+        // Function to fetch and display posts
+        function fetchAndDisplayPosts() {
+            // Replace this URL with the actual API endpoint that provides post data
+            fetch('/getPostData')
+                .then(response => response.json())
+                .then(data => {
+                    const postContainer = document.querySelector('.post-container');
 
+                    // Iterate through the post data and create a post container for each post
+                    data.forEach(postData => {
+                        const newPost = postContainer.cloneNode(true); // Clone the template
+                        newPost.querySelector('.username').textContent = postData.username;
+                        newPost.querySelector('.time').textContent = postData.time;
+                        newPost.querySelector('.post-content').textContent = postData.content;
 
-<p>  
-Luminance
+                        // Append the new post container to the document
+                        document.body.appendChild(newPost);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
 
-</p>
+        // Call the function to fetch and display posts
+        fetchAndDisplayPosts();
+    </script>
 
-<img class="background-image" src="Luminance_KKI.jpg" alt="Background Image">
-
-
-
+    <!-- Footer and other content below -->
 </body>
 </html>
