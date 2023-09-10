@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="TEST2.css">
-    <title>TestPage</title>
+    <title>Welcome to Kavya Kishor</title>
     <style>
         /* CSS styles here */
         body {
@@ -23,8 +23,8 @@
         }
         .signup-form {
             position: absolute;
-            top: 50%; /* Adjust the vertical position */
-            left: 50%; /* Center horizontally */
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
@@ -32,7 +32,6 @@
             border: 1px solid #ccc;
             border-radius: 10px;
         }
-        /* Center the input fields within the form */
         .signup-form input[type="text"],
         .signup-form input[type="email"],
         .signup-form input[type="password"],
@@ -59,61 +58,112 @@
             cursor: pointer;
         }
 
-        /* Styles for the social media post */
+        /* Styles for the post container */
         .post-container {
             background-color: white;
-            border-radius: 10px; /* Rounded corners for the entire container */
+            border-radius: 10px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
             width: 400px;
             max-height: 400px;
             padding: 15px;
-            margin: 20px auto; /* Center the container horizontally and add margin for vertical centering */
+            margin: 20px auto;
             overflow-y: auto;
-            position: relative; /* Add relative positioning for absolute positioning inside */
-            display: flex; /* Display flex to vertically center content */
-            flex-direction: column; /* Align content vertically */
-            align-items: center; /* Center content horizontally */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .grey-stripe {
-            background-color: #ccc; /* Grey color */
-            height: 5px; /* Cover the top with a grey stripe */
-            border-top-left-radius: 10px; /* Rounded corners for the top-left corner */
-            border-top-right-radius: 10px; /* Rounded corners for the top-right corner */
-            position: absolute; /* Position at the top */
+            background-color: #ccc;
+            height: 5px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            position: absolute;
             top: 0;
             left: 0;
-            right: 0; /* Cover the entire width */
+            right: 0;
         }
 
-        /* Styles for the name and time */
+        /* Styles for the post header */
         .post-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
-            width: 100%; /* Ensure the header spans the entire width */
+            width: 100%;
         }
 
         .username {
             font-weight: bold;
-            margin-right: auto; /* Push the name to the left */
+            margin-right: auto;
         }
 
         .time {
             color: #888;
-            margin-left: auto; /* Push the time to the right */
+            margin-left: auto;
         }
 
         .post-content {
-            /* Your post content styles */
+           /* Your post content styles */
+        }
+
+        /* Styles for the like and comment buttons */
+        .post-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .like-button,
+        .comment-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .like-button:hover,
+        .comment-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the like counter */
+        .like-counter {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Style for the comment input field */
+        .comment-input {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .comment-text {
+            width: 90%;
+            padding: 8px;
+            display: block;
+            border: 3px solid #ccc;
+            border-radius: 7px;
+        }
+
+        .comment-submit-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo"></div>
-        <h1>TestPage</h1>
+        <h1>Welcome to Kavya Kishor</h1>
         <nav>
             <ul class="menu">
                 <li><a href="homepage.html">Home</a></li>
@@ -171,6 +221,29 @@
         </div>
     </div>
 
+    <!-- Post Container with Like, Comment Buttons, and Comment Input -->
+    <div class="post-container">
+        <div class="grey-stripe"></div>
+        <div class="post-header">
+            <div class="username">User123</div>
+            <div class="time">2 hours ago</div>
+        </div>
+        <div class="post-content">
+            This is a test post. It can have some content here.
+        </div>
+        <div class="post-buttons">
+            <button class="like-button" onclick="likePost(this)">Like</button>
+            <button class="comment-button" onclick="toggleCommentInput(this)">Comment</button>
+        </div>
+        <div class="like-counter">0 Likes</div>
+        
+        <!-- Comment Input Field (Initially hidden) -->
+        <div class="comment-input" style="display: none;">
+            <input type="text" class="comment-text" placeholder="Write a comment...">
+            <button class="comment-submit-button" onclick="postComment(this)">Post</button>
+        </div>
+    </div>
+
     <!-- JavaScript to open and close the modal -->
     <script>
         // Function to open the modal
@@ -191,38 +264,49 @@
             const modal = document.getElementById(modalId);
             modal.style.display = "none";
         }
-    </script>
 
-    <!-- JavaScript to fetch and display posts -->
-    <script>
-        // Function to fetch and display posts
-        function fetchAndDisplayPosts() {
-            // Replace this URL with the actual API endpoint that provides post data
-            fetch('/getPostData')
-                .then(response => response.json())
-                .then(data => {
-                    const postContainer = document.querySelector('.post-container');
+        // Function to handle liking a post
+        function likePost(button) {
+            // Find the like counter associated with this post container
+            const postContainer = button.closest('.post-container');
+            const likeCounter = postContainer.querySelector('.like-counter');
 
-                    // Iterate through the post data and create a post container for each post
-                    data.forEach(postData => {
-                        const newPost = postContainer.cloneNode(true); // Clone the template
-                        newPost.querySelector('.username').textContent = postData.username;
-                        newPost.querySelector('.time').textContent = postData.time;
-                        newPost.querySelector('.post-content').textContent = postData.content;
+            // Get the current number of likes from the like counter's text
+            const currentLikes = parseInt(likeCounter.textContent);
 
-                        // Append the new post container to the document
-                        document.body.appendChild(newPost);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
+            // Increment the likes and update the like counter
+            const newLikes = currentLikes + 1;
+            likeCounter.textContent = newLikes + ' Likes';
+
+            // Update the button to indicate it's been liked
+            button.textContent = 'Liked';
+            button.style.backgroundColor = '#3498db'; // Change color to indicate liked state
+            button.disabled = true; // Disable the button to prevent multiple likes
         }
 
-        // Call the function to fetch and display posts
-        fetchAndDisplayPosts();
+        // Function to toggle the comment input field
+        function toggleCommentInput(button) {
+            const postContainer = button.closest('.post-container');
+            const commentInput = postContainer.querySelector('.comment-input');
+            commentInput.style.display = 'block';
+        }
+
+        // Function to handle posting a comment
+        function postComment(button) {
+            const postContainer = button.closest('.post-container');
+            const commentInput = postContainer.querySelector('.comment-input');
+            const commentText = commentInput.querySelector('.comment-text').value;
+
+            // add logic here to handle posting the comment.
+            
+
+            // Clear the comment input field
+            commentInput.style.display = 'none';
+            commentInput.querySelector('.comment-text').value = '';
+        }
     </script>
 
     <!-- Footer and other content below -->
 </body>
 </html>
+

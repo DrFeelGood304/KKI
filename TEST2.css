@@ -94,6 +94,28 @@ header h1 {
 }
 
 
+/* Styles for the like and comment buttons */
+.post-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.like-button,
+.comment-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px; /* Increased padding for spacing */
+    cursor: pointer;
+    margin-right: 10px; /* Margin between the buttons */
+}
+
+.like-button:hover,
+.comment-button:hover {
+    background-color: #0056b3;
+}
 
 
 /* Style the paragraph */
